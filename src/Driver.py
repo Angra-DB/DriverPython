@@ -8,7 +8,24 @@ class Driver:
         self.__open_tcp_connection()
 
     def connect_to_data_base(self, db_name):
-        
+        r"""Method that receives as input a name for a Angra DB db and makes
+            connection to it
+
+            Several sentences providing an extended description. Refer to
+            variables using back-ticks, e.g. `var`.
+            Parameters
+            ----------
+            db_name : string
+                The variable `db_name` stands for the name of the db witch is to
+                be connected
+            Returns
+            -------
+            boolean
+                ``boolean`` can only be true or false
+            success : boolean
+                `success` gets true whenever the connection occurs in a successful
+                way, if it fails `success`.
+        """
 
     def __open_tcp_connection(self):
         r"""Method that creates a tcp connection with AngraDB
