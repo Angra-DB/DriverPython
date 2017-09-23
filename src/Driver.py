@@ -27,7 +27,6 @@ class Driver:
     """
     BUFFER_SIZE = 1024
 
-
     def __init__(self, ip_address, ip_port):
         self.__ip_address = ip_address
         self.__ip_port = ip_port
@@ -50,12 +49,14 @@ class Driver:
                 be connected
             Returns
             -------
-            boolean
-                ``boolean`` can only be true or false
-            success : boolean
-                `success` gets true whenever the connection occurs in a successful
-                way, if it fails `success`.
+            response : boolean
+                `response` gets the server response whenever the connection occurs
+                in a successful way, if it fails `response` gets -1.
         """
+        request = "connect " + db_name
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
 
     def __open_tcp_connection(self):
         r"""Method that creates a tcp connection with AngraDB
@@ -66,14 +67,13 @@ class Driver:
                 Because there has been a problem connecting to AngraDB
         """
         self.__session = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.__session.connect((self.__ip_address, self.__ip_port))
-        # self.__session.send(message)
-        # data = self.__session.recv(buffer_size)
-        # print "received data:", data
+        try:
+            self.__session.connect((self.__ip_address, self.__ip_port))
+        except socket.error, msg:
+            print "Couldnt connect with the socket-server: %s\nTerminating program" % msg
 
     def __close_tcp_connection(self):
         r"""Method that destroys a tcp connection with AngraDB
-
 
             Raises
             ------
@@ -81,7 +81,10 @@ class Driver:
                 Because there has been a problem closing the connection
                 to AngraDB
         """
-        self.__session.close()
+        try:
+            self.__session.close()
+        except socket.error, msg:
+            print "Couldnt close the connection with the socket-server: %s\nTerminating program" % msg
 
 
 
