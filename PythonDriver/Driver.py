@@ -58,6 +58,27 @@ class Driver:
         response = self.__session.recv(Driver.BUFFER_SIZE)
         return response
 
+    def create_data_base(self, db_name):
+        r"""Method that receives as input a name and creates a db on AngraDB
+
+            Several sentences providing an extended description. Refer to
+            variables using back-ticks, e.g. `var`.
+            Parameters
+            ----------
+            db_name : string
+                The variable `db_name` stands for the name of the new db to be
+                created
+            Returns
+            -------
+            response : boolean
+                `response` gets the server response whenever the connection occurs
+                in a successful way.
+        """
+        request = "create_db " + db_name
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
+
     def __open_tcp_connection(self):
         r"""Method that creates a tcp connection with AngraDB
 
