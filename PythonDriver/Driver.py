@@ -51,7 +51,7 @@ class Driver:
             -------
             response : boolean
                 `response` gets the server response whenever the connection occurs
-                in a successful way, if it fails `response` gets -1.
+                in a successful way.
         """
         request = "connect " + db_name
         self.__session.send(request)
@@ -71,6 +71,7 @@ class Driver:
             self.__session.connect((self.__ip_address, self.__ip_port))
         except socket.error, msg:
             print "Couldnt connect with the socket-server: %s\nTerminating program" % msg
+            exit(1)
 
     def __close_tcp_connection(self):
         r"""Method that destroys a tcp connection with AngraDB
@@ -85,6 +86,7 @@ class Driver:
             self.__session.close()
         except socket.error, msg:
             print "Couldnt close the connection with the socket-server: %s\nTerminating program" % msg
+            exit(1)
 
 
 
