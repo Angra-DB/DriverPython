@@ -3,7 +3,7 @@ import socket
 
 class Driver:
     """
-        Array with associated photographic information.
+        Python Library to interface with angraDB
         ...
         Attributes
         ----------
