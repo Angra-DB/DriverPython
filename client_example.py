@@ -1,4 +1,4 @@
-from PythonDriver import Driver
+from AngraDBPythonDriver import Driver
 
 
 test_driver = Driver("127.0.0.1", 1234)
