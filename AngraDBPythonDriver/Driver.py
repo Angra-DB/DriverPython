@@ -40,8 +40,6 @@ class Driver:
         r"""Method that receives as input a name for a Angra DB db and makes
             connection to it
 
-            Several sentences providing an extended description. Refer to
-            variables using back-ticks, e.g. `var`.
             Parameters
             ----------
             db_name : string
@@ -49,7 +47,7 @@ class Driver:
                 be connected
             Returns
             -------
-            response : boolean
+            response : string
                 `response` gets the server response whenever the connection occurs
                 in a successful way.
         """
@@ -61,8 +59,6 @@ class Driver:
     def create_data_base(self, db_name):
         r"""Method that receives as input a name and creates a db on AngraDB
 
-            Several sentences providing an extended description. Refer to
-            variables using back-ticks, e.g. `var`.
             Parameters
             ----------
             db_name : string
@@ -70,7 +66,7 @@ class Driver:
                 created
             Returns
             -------
-            response : boolean
+            response : string
                 `response` gets the server response whenever the connection occurs
                 in a successful way.
         """
