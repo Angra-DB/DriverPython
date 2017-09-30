@@ -75,6 +75,27 @@ class Driver:
         response = self.__session.recv(Driver.BUFFER_SIZE)
         return response
 
+    def save_document(self, document):
+        r"""Method that receives as input a document and saves it on a
+            AngraDB db
+
+            Parameters
+            ----------
+            document : string
+                The variable `document` stands for the document to be saved on the
+                db
+            Returns
+            -------
+            response : string
+                `response` gets the server response.
+        """
+        request = "save " + document
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
+
+    # Private methods
+
     def __open_tcp_connection(self):
         r"""Method that creates a tcp connection with AngraDB
 
