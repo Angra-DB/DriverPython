@@ -89,6 +89,10 @@ class Driver:
             response : string
                 `response` gets the server response.
         """
+        request = "save " + document
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
 
     # Private methods
 
