@@ -94,6 +94,25 @@ class Driver:
         response = self.__session.recv(Driver.BUFFER_SIZE)
         return response
 
+    def lookup_document(self, id):
+        r"""Method that receives as input a id for a document and
+            returns it
+
+            Parameters
+            ----------
+            id : string
+                The variable `id` stands for the id of the document
+                to be looked up
+            Returns
+            -------
+            response : string
+                `response` gets the server response.
+        """
+        request = "lookup " + id
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
+
     # Private methods
 
     def __open_tcp_connection(self):
