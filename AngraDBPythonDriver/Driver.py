@@ -52,8 +52,7 @@ class Driver:
                 in a successful way.
         """
         request = "connect " + db_name
-        self.__session.send(request)
-        response = self.__session.recv(Driver.BUFFER_SIZE)
+        response = self.__send_to_server(request)
         return response
 
     def create_data_base(self, db_name):
@@ -71,8 +70,7 @@ class Driver:
                 in a successful way.
         """
         request = "create_db " + db_name
-        self.__session.send(request)
-        response = self.__session.recv(Driver.BUFFER_SIZE)
+        response = self.__send_to_server(request)
         return response
 
     def save_document(self, document):
@@ -90,30 +88,46 @@ class Driver:
                 `response` gets the server response.
         """
         request = "save " + document
-        self.__session.send(request)
-        response = self.__session.recv(Driver.BUFFER_SIZE)
+        response = self.__send_to_server(request)
         return response
 
-    def lookup_document(self, id):
+    def lookup_document(self, doc_id):
         r"""Method that receives as input a id for a document and
             returns it
 
             Parameters
             ----------
-            id : string
-                The variable `id` stands for the id of the document
+            doc_id : string
+                The variable `doc_id` stands for the id of the document
                 to be looked up
             Returns
             -------
             response : string
                 `response` gets the server response.
         """
-        request = "lookup " + id
-        self.__session.send(request)
-        response = self.__session.recv(Driver.BUFFER_SIZE)
+        request = "lookup " + doc_id
+        response = self.__send_to_server(request)
         return response
 
     # Private methods
+
+    def __send_to_server(self, request):
+        r"""Method that receives as input a request to be sent to
+            the angra db server and returns its response
+
+            Parameters
+            ----------
+            request : string
+                The variable `request` stands for the text to be sent
+                to the angra db server
+            Returns
+            -------
+            response : string
+                `response` gets the server response.
+        """
+        self.__session.send(request)
+        response = self.__session.recv(Driver.BUFFER_SIZE)
+        return response
 
     def __open_tcp_connection(self):
         r"""Method that creates a tcp connection with AngraDB
