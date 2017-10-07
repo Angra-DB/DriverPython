@@ -8,4 +8,6 @@ response = test_driver.connect_to_data_base("db")
 print response
 response = test_driver.save_document("document")
 print response
+response = test_driver.lookup_document("0")
+print response
 
