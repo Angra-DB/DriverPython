@@ -16,12 +16,20 @@ initialization, the `ip_address` and `ip_port` of the AngraDB server, an instant
 
 ##### create_db
 `create_data_base(db_name)`
+
+Creates a database with name `db_name`
 ##### connect
 `connect_to_data_base(db_name)`
+
+Connects to a database with name `db_name`
 ##### save
 `save_document(document)`
+
+Saves a document `document`
 ##### lookup
 `lookup_document(document_identification)`
+
+Gets the document of key `document_identification`
 
 
 ---
@@ -29,6 +37,6 @@ initialization, the `ip_address` and `ip_port` of the AngraDB server, an instant
 
 - Turn on AngraDB
 - Run client_example.py (it runs a `create_db db`, a `connect db`, `save document` 
-and a `lookup` and prints the server feedback on screen)
+and a `lookup id` and prints the server feedback on screen)
 
 
