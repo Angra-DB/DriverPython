@@ -127,6 +127,10 @@ class Driver:
             response : string
                 `response` gets the server response.
         """
+        request = "update " + doc_id + " " + document
+        response = self.__send_to_server(request)
+        return response
+
     # Private methods
 
     def __send_to_server(self, request):
