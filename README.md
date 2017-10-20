@@ -31,6 +31,11 @@ Saves a document `document`
 
 Gets the document of key `document_identification`
 
+##### update
+`update_document(document_identification, new_document)`
+
+Gets the document key `document_identification`, finds the corresponding document and updates it with the 
+new document `new_document`
 
 ---
 #### Test
