@@ -42,6 +42,6 @@ new document `new_document`
 
 - Turn on AngraDB
 - Run client_example.py (it runs a `create_db db`, a `connect db`, `save document` 
-and a `lookup id` and prints the server feedback on screen)
+a `lookup id` a `update id document_update` and a `lookup id` and prints all the server feedback on screen)
 
 
