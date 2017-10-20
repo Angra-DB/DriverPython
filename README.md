@@ -25,7 +25,7 @@ Connects to a database with name `db_name`
 ##### save
 `save_document(document)`
 
-Saves a document `document`
+Saves a document `document` and returns its key
 ##### lookup
 `lookup_document(document_identification)`
 
