@@ -89,6 +89,8 @@ class Driver:
         """
         request = "save " + document
         response = self.__send_to_server(request)
+        # This is required because the id comes from the server with quotes
+        response = self.__remove_quote_and_new_line(response)
         return response
 
     def lookup_document(self, doc_id):
@@ -103,7 +105,7 @@ class Driver:
             Returns
             -------
             response : string
-                `response` gets the server response.
+                `response` gets the id of the document.
         """
         request = "lookup " + doc_id
         response = self.__send_to_server(request)
@@ -132,6 +134,21 @@ class Driver:
         return response
 
     # Private methods
+
+    def __remove_quote_and_new_line(self, string):
+        r"""Method that receives as input a string and returns a version
+        of it without quotes
+
+            Parameters
+            ----------
+            string : string
+                The variable `string` stands for the text to be formated
+            Returns
+            -------
+            response : string
+                `response` gets string without quotes.
+        """
+        return string.replace('"', "").replace('\n', "")
 
     def __send_to_server(self, request):
         r"""Method that receives as input a request to be sent to
