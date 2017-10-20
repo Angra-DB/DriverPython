@@ -109,6 +109,28 @@ class Driver:
         response = self.__send_to_server(request)
         return response
 
+    def update_document(self, doc_id, document):
+        r"""Method that receives as input a id for a document, a document
+            and updates its value
+
+            Parameters
+            ----------
+            doc_id : string
+                The variable `doc_id` stands for the id of the document
+                to be looked up
+            document : string
+                The variable `document` stands for the document witch is
+                going to replace the current document
+
+            Returns
+            -------
+            response : string
+                `response` gets the server response.
+        """
+        request = "update " + doc_id + " " + document
+        response = self.__send_to_server(request)
+        return response
+
     # Private methods
 
     def __send_to_server(self, request):
