@@ -37,11 +37,16 @@ Gets the document of key `document_identification`
 Gets the document key `document_identification`, finds the corresponding document and updates it with the 
 new document `new_document`
 
+##### delete
+`delete_document(document_identification)`
+
+Gets the document key `document_identification`, finds the corresponding document and deletes it
+
 ---
 #### Test
 
 - Turn on AngraDB
 - Run client_example.py (it runs a `create_db db`, a `connect db`, `save document` 
-a `lookup id` a `update id document_update` and a `lookup id` and prints all the server feedback on screen)
+a `lookup id` a `update id document_update`, a `lookup id` and a `delete id` and prints all the server feedback on screen)
 
 
