@@ -13,3 +13,5 @@ response = test_driver.update_document(doc_key, "document_update")
 print response
 response = test_driver.lookup_document(doc_key)
 print response
+response = test_driver.delete_document(doc_key)
+print response
