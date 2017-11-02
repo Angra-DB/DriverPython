@@ -133,6 +133,21 @@ class Driver:
         response = self.__send_to_server(request)
         return response
 
+    def delete_document(self, doc_id):
+        r"""Method that receives as input a id for a document and
+            deletes it
+
+            Parameters
+            ----------
+            doc_id : string
+                The variable `doc_id` stands for the id of the document
+                to be looked up
+
+            Returns
+            -------
+            response : string
+                `response` gets the server response.
+        """
     # Private methods
 
     def __remove_quote_and_new_line(self, string):
