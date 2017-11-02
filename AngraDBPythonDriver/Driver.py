@@ -148,6 +148,10 @@ class Driver:
             response : string
                 `response` gets the server response.
         """
+        request = "delete " + doc_id
+        response = self.__send_to_server(request)
+        return response
+
     # Private methods
 
     def __remove_quote_and_new_line(self, string):
